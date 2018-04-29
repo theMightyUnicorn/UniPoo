@@ -13,25 +13,41 @@
             <ColumnDefinition Width="60*"></ColumnDefinition>
             <ColumnDefinition Width="20*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox >
-            <ListBoxItem>Robert Fischer</ListBoxItem>
-            <ListBoxItem>Hengst</ListBoxItem>
-            <ListBoxItem>Boii</ListBoxItem>
-        </ListBox>
-        <StackPanel Background="Beige" Grid.Column="0" VerticalAlignment="Bottom">
-            <TextBlock Margin="5" Grid.Column="0"  VerticalAlignment="Bottom" 
-                   Text="Search"/>
-            <TextBox Margin="5"/>
-        </StackPanel>
-        <StackPanel Background="MistyRose" Grid.Column="1" Margin="5">
-            <TextBlock Margin="5">Name: Some Name(Robert Fischer)</TextBlock>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="5">Birth Date:</TextBlock>
-                <Calendar></Calendar>
-                <!--     CONTINUE HERE(Color Picker)     -->                
-              
-            </StackPanel>
+        <Grid.RowDefinitions>
             
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="0">
+                <ListBox Margin="5" BorderThickness="0" Background="AliceBlue">
+                    <ListBoxItem>Robert Fischer</ListBoxItem>
+                    <ListBoxItem>Hengst</ListBoxItem>
+                    <ListBoxItem>Boii</ListBoxItem>
+                    <ListBoxItem>Robert Fischer</ListBoxItem>
+                    <ListBoxItem>Hengst</ListBoxItem>
+                </ListBox>
+            </ScrollViewer>
+            <StackPanel Margin="5" Background="Honeydew" Grid.Column="0" VerticalAlignment="Bottom" Grid.Row="1">
+                <TextBlock Margin="5" Grid.Column="0" Text="Search"/>
+                <TextBox Margin="5"/>
+            </StackPanel>
         </StackPanel>
-       </Grid>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="5" Background="MistyRose">
+            <StackPanel  >
+                <TextBlock Margin="5">Name: Some Name(Robert Fischer)</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5">Birth Date:</TextBlock>
+                    <Calendar></Calendar>
+                </StackPanel>
+                <TextBlock Margin="5">Color: #RRGGBB</TextBlock>
+                <TextBlock Margin="5">Description:</TextBlock>
+                <TextBox Height="60" Margin="5"/>
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel VerticalAlignment="Center" Grid.Column="2" Margin="5">
+            <Button BorderThickness="0" Margin="5" Background="DeepSkyBlue" Foreground="GhostWhite">Create</Button>
+            <Button BorderThickness="0" Margin="5" Background="HotPink" Foreground="GhostWhite">Delete</Button>
+            <Button BorderThickness="0" Margin="5" Background="PaleGreen" Foreground="White">Edit</Button>
+        </StackPanel>
+    </Grid>
 </Window>
