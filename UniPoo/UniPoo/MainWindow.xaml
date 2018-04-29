@@ -42,6 +42,16 @@
                 <TextBlock Margin="5">Color: #RRGGBB</TextBlock>
                 <TextBlock Margin="5">Description:</TextBlock>
                 <TextBox Height="60" Margin="5"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Spezialfähigkeit:</TextBlock>
+                    <ComboBox>
+                        <ComboBoxItem IsSelected="True">None</ComboBoxItem>
+                        <ComboBoxItem>Invisible</ComboBoxItem>
+                        <ComboBoxItem>Heal</ComboBoxItem>
+                        <ComboBoxItem>Fly</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <TextBlock>Description here</TextBlock>
             </StackPanel>
         </ScrollViewer>
         <StackPanel VerticalAlignment="Center" Grid.Column="2" Margin="5">
