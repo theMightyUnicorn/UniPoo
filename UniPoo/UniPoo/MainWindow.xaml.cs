@@ -25,6 +25,10 @@ namespace UniPoo
         {
             get; set;
         }
+
+        public List<Unicorn> TestUnicornList { get; set; }
+
+
         
         public string UnicornName
         {
@@ -33,20 +37,28 @@ namespace UniPoo
                 return "Name: " + TestUnicorn.Name;
             }
         }
-
-        public DateTime UnicornBirthdate
+        
+        public string UnicornRGBColor
         {
             get
             {
-                return TestUnicorn.Birthdate;
+                return "Color: " + TestUnicorn.RGBColor;
             }
         }
-
+        
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
             TestUnicorn = new Unicorn("Annegret", new DateTime(2009, 11, 9), "469872", "Hallo I bims Annegret. Bobs und vagene ich bin fett hihi");
+
+            TestUnicornList = new List<Unicorn>();
+            TestUnicornList.Add(new Unicorn("Annegret", new DateTime(2009, 11, 9), "469872", "Hallo I bims Annegret. Bobs und vagene ich bin fett hihi"));
+            TestUnicornList.Add(new Unicorn("Aaron", new DateTime(1900, 5, 3), "123456", "Ich bin so dumm"));
+            for (int i = 0; i < TestUnicornList.Count; i++)
+            {
+                NamesBox.Items.Add(TestUnicornList.ElementAt(i).Name);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

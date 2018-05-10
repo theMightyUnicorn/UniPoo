@@ -18,13 +18,8 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="0">
-                <ListBox Margin="5" BorderThickness="0" Background="AliceBlue">
-                    <ListBoxItem>Robert Fischer</ListBoxItem>
-                    <ListBoxItem>Hengst</ListBoxItem>
-                    <ListBoxItem>Boii</ListBoxItem>
-                    <ListBoxItem>Robert Fischer</ListBoxItem>
-                    <ListBoxItem>Hengst</ListBoxItem>
-                </ListBox>
+                <ListBox Name ="NamesBox" Margin="5" BorderThickness="0" Background="AliceBlue"
+                         SelectedItem="{Binding Path=SelectedUnicorn , Mode=TwoWay}"/>
             </ScrollViewer>
             <StackPanel Margin="5" Background="Honeydew" Grid.Column="0" VerticalAlignment="Bottom" Grid.Row="1">
                 <TextBlock Margin="5" Grid.Column="0" Text="Search"/>
@@ -34,14 +29,14 @@
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="5" Background="MistyRose">
             <StackPanel  >
-                <TextBlock Margin="5" Text="{Binding Path=TestUnicorn.Name}"/>
+                <TextBlock Margin="5" Text="{Binding Path=UnicornName}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5">Birth Date:</TextBlock>
                     <Calendar SelectedDate="{Binding Path=TestUnicorn.Birthdate}" DisplayDate="{Binding Path=TestUnicorn.Birthdate}"/>
                 </StackPanel>
-                <TextBlock Margin="5">Color: #RRGGBB</TextBlock>
-                <TextBlock Margin="5">Description:</TextBlock>
-                <TextBox Height="60" Margin="5"/>
+                <TextBlock Margin="5" Text="{Binding Path=UnicornRGBColor}"/>
+                <TextBlock Margin="5" Text="Description"/>
+                <TextBox Height="60" Margin="5" Text="{Binding Path=TestUnicorn.Description}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Spezialfähigkeit:</TextBlock>
                     <ComboBox>
