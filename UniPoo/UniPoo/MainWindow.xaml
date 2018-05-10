@@ -18,8 +18,15 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="0">
-                <ListBox Name ="NamesBox" Margin="5" BorderThickness="0" Background="AliceBlue"
-                         SelectedItem="{Binding Path=SelectedUnicorn , Mode=TwoWay}"/>
+                <ListBox Name ="NamesBox" Margin="5" BorderThickness="0" Background="AliceBlue" ItemsSource="{Binding TestUnicornList}"  SelectedItem="{Binding Path=SelectedUnicorn, Mode=TwoWay}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Path=Name}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </ScrollViewer>
             <StackPanel Margin="5" Background="Honeydew" Grid.Column="0" VerticalAlignment="Bottom" Grid.Row="1">
                 <TextBlock Margin="5" Grid.Column="0" Text="Search"/>
@@ -29,14 +36,14 @@
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="5" Background="MistyRose">
             <StackPanel  >
-                <TextBlock Margin="5" Text="{Binding Path=UnicornName}"/>
+                <TextBlock Margin="5" Text="{Binding Path=SelectedUnicorn.Name}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5">Birth Date:</TextBlock>
-                    <Calendar SelectedDate="{Binding Path=TestUnicorn.Birthdate}" DisplayDate="{Binding Path=TestUnicorn.Birthdate}"/>
+                    <Calendar SelectedDate="{Binding Path=SelectedUnicorn.Birthdate}" DisplayDate="{Binding Path=SelectedUnicorn.Birthdate}"/>
                 </StackPanel>
-                <TextBlock Margin="5" Text="{Binding Path=UnicornRGBColor}"/>
+                <TextBlock Margin="5" Text="{Binding Path=SelectedUnicorn.RGBColor}"/>
                 <TextBlock Margin="5" Text="Description"/>
-                <TextBox Height="60" Margin="5" Text="{Binding Path=TestUnicorn.Description}"/>
+                <TextBox Height="60" Margin="5" Text="{Binding Path=SelectedUnicorn.Description}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Spezialfähigkeit:</TextBlock>
                     <ComboBox>
