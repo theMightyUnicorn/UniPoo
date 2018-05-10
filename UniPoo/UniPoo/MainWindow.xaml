@@ -34,10 +34,10 @@
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="5" Background="MistyRose">
             <StackPanel  >
-                <TextBlock Margin="5">Name: Some Name(Robert Fischer)</TextBlock>
+                <TextBlock Margin="5" Text="{Binding Path=TestUnicorn.Name}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5">Birth Date:</TextBlock>
-                    <Calendar></Calendar>
+                    <Calendar SelectedDate="{Binding Path=TestUnicorn.Birthdate}" DisplayDate="{Binding Path=TestUnicorn.Birthdate}"/>
                 </StackPanel>
                 <TextBlock Margin="5">Color: #RRGGBB</TextBlock>
                 <TextBlock Margin="5">Description:</TextBlock>

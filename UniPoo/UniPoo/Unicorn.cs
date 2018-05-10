@@ -6,15 +6,38 @@ using System.Threading.Tasks;
 
 namespace UniPoo
 {
-    class Unicorn
+    public class Unicorn
     {
         private string name;
         private DateTime birthdate;
         private string rgbColor;
         private string description;
-        private List<SpecialAbility> specialAbilityList; //TODO: instanciate
+        private List<SpecialAbility> specialAbilityList; //TODO: instantiate
+        private int id;
+        // TODO: Profile picture
 
-        private string Name
+        public Unicorn(string name, DateTime birthdate, string rgbColor, string description)
+        {
+            this.name = name;
+            this.birthdate = birthdate;
+            this.rgbColor = rgbColor;
+            this.description = description;
+        }
+
+        public int ID
+        {
+            get
+            {
+                return this.id;
+            }
+            set
+            {
+                this.id = value;
+            }
+        }
+
+
+        public string Name
         {
             get
             {
@@ -25,10 +48,21 @@ namespace UniPoo
                 if(value.Length <= 20)
                 {
                     this.name = value;
+                } else
+                {
+                    throw new Exception("The name is too long, it should be <= 20");
                 }
             }
         }
-        public DateTime Birthdate{ get; set; }
+        public DateTime Birthdate{
+            get {
+                return this.birthdate;
+            }
+            set
+            {
+                this.birthdate = value;
+            }
+        }
 
         public string RGBColor
         {
@@ -41,6 +75,9 @@ namespace UniPoo
                 if (value.Length == 5)
                 {
                     this.rgbColor = value;
+                } else
+                {
+                    throw new Exception("The RGB Color is invalid");
                 }
             }
         }
@@ -56,6 +93,9 @@ namespace UniPoo
                 if (value.Length <= 500)
                 {
                     this.rgbColor = value;
+                } else
+                {
+                    throw new Exception("The description is too long");
                 }
             }
         }
@@ -68,6 +108,7 @@ namespace UniPoo
             }
             set
             {
+                this.specialAbilityList = value;
                 //bool noDuplicate = true;
                 //for(int i = this.specialAbilityList)
                 //if (noDuplicate)
