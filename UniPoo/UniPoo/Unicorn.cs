@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UniPoo
 {
-    public class Unicorn
+    public class Unicorn 
     {
         private string name;
         private DateTime birthdate;
@@ -16,12 +16,13 @@ namespace UniPoo
         private int id;
         // TODO: Profile picture
 
-        public Unicorn(string name, DateTime birthdate, string rgbColor, string description)
+        public Unicorn(string name, DateTime birthdate, string rgbColor, string description, params SpecialAbility[] specialAbilities)
         {
             this.name = name;
             this.birthdate = birthdate;
             this.rgbColor = rgbColor;
             this.description = description;
+            this.specialAbilityList = new List<SpecialAbility>(specialAbilities);
         }
 
         public int ID
@@ -35,7 +36,6 @@ namespace UniPoo
                 this.id = value;
             }
         }
-
 
         public string Name
         {
@@ -60,7 +60,7 @@ namespace UniPoo
             }
             set
             {
-                this.birthdate = value;
+                this.birthdate = value == null ? new DateTime(1900, 1, 1) : value;
             }
         }
 
@@ -72,13 +72,7 @@ namespace UniPoo
             }
             set
             {
-                if (value.Length == 5)
-                {
-                    this.rgbColor = value;
-                } else
-                {
-                    //throw new Exception("The RGB Color is invalid");
-                }
+                this.rgbColor = value;
             }
         }
 
@@ -92,7 +86,7 @@ namespace UniPoo
             {
                 if (value.Length <= 500)
                 {
-                    this.rgbColor = value;
+                    this.description = value;
                 } else
                 {
                     throw new Exception("The description is too long");
