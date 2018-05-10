@@ -77,7 +77,7 @@ namespace UniPoo
                     this.rgbColor = value;
                 } else
                 {
-                    throw new Exception("The RGB Color is invalid");
+                    //throw new Exception("The RGB Color is invalid");
                 }
             }
         }

@@ -18,7 +18,9 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="0">
-                <ListBox Name ="NamesBox" Margin="5" BorderThickness="0" Background="AliceBlue" ItemsSource="{Binding TestUnicornList}"  SelectedItem="{Binding Path=SelectedUnicorn, Mode=TwoWay}">
+                <ListBox Name ="NamesBox" Margin="5" BorderThickness="0" Background="AliceBlue" 
+                         ItemsSource="{Binding TestUnicornList}"  SelectedItem="{Binding Path=SelectedUnicorn, Mode=TwoWay}"
+>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
@@ -36,14 +38,15 @@
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="5" Background="MistyRose">
             <StackPanel  >
-                <TextBlock Margin="5" Text="{Binding Path=SelectedUnicorn.Name}"/>
+                <TextBox Name="NametxtBox" IsReadOnly="True" Margin="5" Text="{Binding Path=SelectedUnicorn.Name,UpdateSourceTrigger=PropertyChanged}"
+                        />
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5">Birth Date:</TextBlock>
                     <Calendar SelectedDate="{Binding Path=SelectedUnicorn.Birthdate}" DisplayDate="{Binding Path=SelectedUnicorn.Birthdate}"/>
                 </StackPanel>
-                <TextBlock Margin="5" Text="{Binding Path=SelectedUnicorn.RGBColor}"/>
+                <TextBox Name="RGBColortxtBox" IsReadOnly="True" Margin="5" Text="{Binding Path=SelectedUnicorn.RGBColor, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Margin="5" Text="Description"/>
-                <TextBox Height="60" Margin="5" Text="{Binding Path=SelectedUnicorn.Description}"/>
+                <TextBox Name="DescriptiontxtBox" IsReadOnly="True" Height="60" Margin="5" Text="{Binding Path=SelectedUnicorn.Description, UpdateSourceTrigger=PropertyChanged}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Spezialfähigkeit:</TextBlock>
                     <ComboBox>
@@ -57,9 +60,9 @@
             </StackPanel>
         </ScrollViewer>
         <StackPanel VerticalAlignment="Center" Grid.Column="2" Margin="5">
-            <Button BorderThickness="0" Margin="5" Background="DeepSkyBlue" Foreground="GhostWhite">Create</Button>
-            <Button BorderThickness="0" Margin="5" Background="HotPink" Foreground="GhostWhite">Delete</Button>
-            <Button BorderThickness="0" Margin="5" Background="PaleGreen" Foreground="White">Edit</Button>
+            <Button BorderThickness="0" Margin="5" Background="DeepSkyBlue" Foreground="GhostWhite" Click="Button_Click_Create">Create</Button>
+            <Button BorderThickness="0" Margin="5" Background="HotPink" Foreground="GhostWhite" Click="Button_Click_Delete">Delete</Button>
+            <Button BorderThickness="0" Margin="5" Background="PaleGreen" Foreground="White" Name="EditButton" Click="Button_Click_Edit">Edit</Button>
         </StackPanel>
     </Grid>
 </Window>

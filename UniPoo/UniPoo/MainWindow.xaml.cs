@@ -29,8 +29,9 @@ namespace UniPoo
             {
                 return this._selectedUnicorn;
             }
-            set {
-                Trace.WriteLine("New Unicorn Selected " + value.Name);
+            set
+            {
+                //Trace.WriteLine("New Unicorn Selected " + value.Name);
                 this._selectedUnicorn = value;
                 OnPropertyChanged("SelectedUnicorn");
 
@@ -39,7 +40,7 @@ namespace UniPoo
 
         public List<Unicorn> TestUnicornList { get; set; }
 
-        
+
         public MainWindow()
         {
             Trace.WriteLine("Swag");
@@ -60,6 +61,39 @@ namespace UniPoo
             Console.WriteLine("SWAG");
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void Button_Click_Create(object sender, RoutedEventArgs e)
+        {
+            Trace.WriteLine("Hihihi ich hab den knopf gedrückt");
+            Unicorn swaggyUnicorn = new Unicorn("Robert", new DateTime(2010, 1, 8), "666666", "Ich bin so ein geiler Hengst");
+            TestUnicornList.Add(swaggyUnicorn);
+            NamesBox.Items.Refresh();
+            SelectedUnicorn = swaggyUnicorn;
+            //OnPropertyChanged("TestUnicornList"); hat keine auswirkungen whatever
+        }
+        private void Button_Click_Delete(object sender, RoutedEventArgs e)
+        {
+            TestUnicornList.Remove(SelectedUnicorn);
+            NamesBox.Items.Refresh();
+        }
+        private void Button_Click_Edit(object sender, RoutedEventArgs e)
+        {
+            if (EditButton.Content.ToString() == "Edit")
+            {
+                NametxtBox.IsReadOnly = false;
+                RGBColortxtBox.IsReadOnly = false;
+                DescriptiontxtBox.IsReadOnly = false;
+                EditButton.Content = "Save";
+            }
+            else if (EditButton.Content.ToString() == "Save")
+            {
+                NametxtBox.IsReadOnly = true;
+                RGBColortxtBox.IsReadOnly = true;
+                DescriptiontxtBox.IsReadOnly = true;
+                EditButton.Content = "Edit";
+            }
+
         }
     }
 }
