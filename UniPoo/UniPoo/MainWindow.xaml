@@ -37,16 +37,21 @@
         </StackPanel>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="5" Background="MistyRose">
-            <StackPanel  >
-                <TextBox Name="NametxtBox" IsReadOnly="True" Margin="5" Text="{Binding Path=SelectedUnicorn.Name,UpdateSourceTrigger=PropertyChanged}"
-                        />
+            <StackPanel  Grid.Column="1">
+                <DockPanel>
+                    <TextBlock Margin="5">Name:</TextBlock>
+                    <TextBox Name="NametxtBox" IsReadOnly="True" Margin="5" Text="{Binding Path=SelectedUnicorn.Name,UpdateSourceTrigger=PropertyChanged}" />
+                 </DockPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5">Birth Date:</TextBlock>
                     <Calendar SelectedDate="{Binding Path=SelectedUnicorn.Birthdate}" DisplayDate="{Binding Path=SelectedUnicorn.Birthdate}"/>
                 </StackPanel>
-                <TextBox Name="RGBColortxtBox" IsReadOnly="True" Margin="5" Text="{Binding Path=SelectedUnicorn.RGBColor, UpdateSourceTrigger=PropertyChanged}"/>
+                <DockPanel>
+                    <TextBlock Margin="5">Color:</TextBlock>
+                    <TextBox Name="RGBColortxtBox" IsReadOnly="True" Margin="5" Text="{Binding Path=SelectedUnicorn.RGBColor, UpdateSourceTrigger=PropertyChanged}"/>
+                </DockPanel>
                 <TextBlock Margin="5" Text="Description"/>
-                <TextBox Name="DescriptiontxtBox" IsReadOnly="True" Height="60" Margin="5" Text="{Binding Path=SelectedUnicorn.Description, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox TextWrapping="Wrap" AcceptsReturn="True" Name="DescriptiontxtBox" IsReadOnly="True" Height="60" Margin="5" Text="{Binding Path=SelectedUnicorn.Description, UpdateSourceTrigger=PropertyChanged}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Spezialfähigkeit:</TextBlock>
                     <ComboBox>
