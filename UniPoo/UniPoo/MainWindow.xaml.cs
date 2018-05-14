@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UniPoo.DAO;
 
 namespace UniPoo
 {
@@ -47,11 +48,10 @@ namespace UniPoo
             InitializeComponent();
             DataContext = this;
 
-            TestUnicornList = new List<Unicorn>();
-            TestUnicornList.Add(new Unicorn("Aaron", new DateTime(1900, 5, 3), "123456", "Ich bin so dumm"));
-            TestUnicornList.Add(new Unicorn("Annegret", new DateTime(2009, 11, 9), "469872", "Hallo I bims Annegret. Bobs und vagene ich bin fett hihi"));
+            TestUnicornList = UnicornDAO.Instance.GetUnicornList();
 
             SelectedUnicorn = TestUnicornList[1];
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
